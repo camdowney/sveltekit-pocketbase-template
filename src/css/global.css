@@ -1,189 +1,81 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
 
-@layer base {
-  /* 
-    Base & Typography
-  */
-  html {
-    @apply font-main bg-gray-100 scroll-smooth scroll-pt-14 md:scroll-pt-16;
-  }
-  h1, .h1 {
-    @apply font-heading text-4xl md:text-5xl xl:text-6xl leading-sm tracking-lg font-bold text-gray-100 uppercase;
-  }
-  h2, .h2 {
-    @apply font-heading text-2xl md:text-3xl lg:text-5xl leading-sm tracking-lg font-bold text-gray-800 uppercase -mt-1.5;
-  }
-  h3, .h3 {
-    @apply font-heading text-xl md:text-xl lg:text-2xl leading-sm tracking-lg font-bold text-gray-800 uppercase;
-  }
-  h4, .h4 {
-    @apply font-heading t1 leading-sm tracking-lg font-bold text-gray-400;
-  }
-  .t1 {
-    @apply text-sm md:text-md lg:text-lg;
-  }
-  .t2 {
-    @apply text-xs md:text-sm lg:text-md;
-  }
-  .t3 {
-    @apply text-2xs md:text-sm lg:text-md;
-  }
-  p, p > a, ul, ol, label, input {
-    @apply t1 leading-xl tracking-md font-normal text-gray-800;
-  }
-  p > a {
-    @apply border-b-2 border-gray-400 hover:border-gray-700;
-  }
-  .quote {
-    @apply border-l-4 md:border-l-[6px] border-gray-400 italic pl-6 md:pl-8;
-  }
-  input {
-    @apply t3;
-  }
-  a, button {
-    @apply t2 leading-xs tracking-md duration-150 md:duration-300 transition-colors;
-  }
-  ul, ol {
-    @apply ml-5 md:ml-6 space-y-2 md:space-y-3;
-  }
-  ul {
-    @apply list-disc;
-  }
-  ol {
-    @apply list-decimal;
-  }
-  :focus-visible {
-    @apply !outline-none !shadow-[0_0_0_3px_#369df7];
-  }
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* 
-  UI - Common
-*/
-.px-md {
-  @apply px-6 md:px-14 lg:px-24;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
-.py-md {
-  @apply py-14 md:py-20 xl:py-32;
-}
-.gap-md {
-  @apply gap-7 md:gap-9 lg:gap-16 xl:gap-28;
-}
-.gap-y-lg {
-  @apply gap-y-7 md:gap-y-9;
-}
-.space-y-md {
-  @apply space-y-5 md:space-y-6;
-}
-.space-y-lg {
-  @apply space-y-7 md:space-y-9;
-}
-.fui-section {
-  @apply relative py-md;
-}
-.fui-shelf {
-  @apply relative max-w-9xl w-full px-md mx-auto;
-}
-.fui-content {
-  @apply relative space-y-3 md:space-y-4 lg:space-y-5;
-}
-.content-md {
-  @apply max-w-2xl;
-}
-.content-split {
-  @apply md:grid md:grid-cols-5 gap-6 md:gap-10 md:!space-y-0;
-}
-.content-split > :first-child {
-  @apply md:col-span-2;
-}
-.content-split > :last-child {
-  @apply md:col-span-3;
-}
-.content-offset > :last-child {
-  @apply md:ml-12 lg:ml-16;
-}
-.fui-subheading {
-  @apply font-heading t1 leading-sm tracking-lg font-bold text-gray-400 mt-1.5 md:mt-2;
-}
-.fui-body {
-  @apply space-y-4 md:space-y-6 gap-x-6 md:gap-x-10;
-}
-.body-light > p {
-  @apply text-gray-100
-}
-.fui-cta {
-  @apply flex flex-wrap items-center gap-2 md:gap-3 mt-5 md:mt-6 lg:mt-8;
-}
-.menu-open {
-  @apply visible origin-top opacity-100 duration-[0.25s];
-  transform: scale3d(1, 1, 1);
-}
-.menu-close {
-  @apply invisible origin-top opacity-0 duration-[0.25s];
-  transform: scale3d(0.85, 0.85, 1);
-}
-.modal-open {
-  @apply visible opacity-100 origin-center duration-[0.4s];
-  transform: scale3d(1, 1, 1);
-}
-.modal-close {
-  @apply invisible opacity-0 origin-center duration-[0.4s];
-  transform: scale3d(0.85, 0.85, 1);
-}
-.tooltip, .fui-error-modal {
-  @apply min-w-max flex items-center bg-gray-100 rounded-3xl shadow-sm origin-top-left duration-200 t2 text-gray-700 px-3.5 md:px-4 py-1.5 mt-2;
-}
-.tooltip svg, .fui-error-modal svg {
-  @apply w-3.5 md:w-4 mr-1.5;
-  transform: scale3d(1, 1, 1);
+a:hover {
+  color: #535bf2;
 }
 
-/*
-  UI - Forms
-*/
-.fui-field input, .fui-field textarea, .fui-field select {
-  @apply block w-full bg-transparent border-2 border-gray-400 rounded-xl duration-200 px-5 md:px-6 py-3 md:py-3.5;
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
-.fui-field-invalid {
-  @apply -mb-3 md:-mb-2;
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
-.fui-field-invalid input, .fui-field-invalid textarea, .fui-field-invalid select {
-  @apply border-error-500;
+
+.card {
+  padding: 2em;
 }
-.fui-field textarea {
-  @apply h-36 md:h-40 resize-none;
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
-.fui-field select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
-.fui-label {
-  @apply block mb-0.5;
+button:hover {
+  border-color: #646cff;
 }
-.fui-dropdown {
-  @apply w-3 md:w-3.5 mt-0.5 mr-4 md:mr-5;
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
-.fui-check {
-  @apply w-5 h-5 rounded-sm border-2 border-gray-400 text-[rgba(0,0,0,0)] p-0.5 mr-3 mt-[3px] md:mt-1;
-}
-.fui-checkbox input:checked ~ .fui-check {
-  @apply bg-gray-500 text-gray-100;
-}
-.fui-checkbox input:focus ~ .fui-check {
-  @apply !outline-none !shadow-[0_0_0_3px_#369df7];
-}
-.fui-error {
-  @apply t2 leading-xs text-error-500 mt-2;
-}
-.fui-error-modal {
-  @apply !text-error-500 md:!mt-2.5;
-}
-.fui-error svg {
-  @apply w-3.5 md:w-4 mr-1.5;
-}
-::placeholder {
-  @apply text-gray-400 !important;
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }

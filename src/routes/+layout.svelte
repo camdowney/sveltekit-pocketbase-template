@@ -1,5 +1,5 @@
 <script>
-	import { Header, Footer } from '../components/sections'
+	import { Header, Footer } from '$lib/components/sections'
 	import '../css/global.css'
 </script>
 

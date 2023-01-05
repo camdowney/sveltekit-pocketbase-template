@@ -1,8 +1,8 @@
-<script lang="ts">
-  import { currentUser, pb } from './pocketbase';
+<script>
+  import { currentUser, pb } from '$lib/pocketbase'
 
-  let username: string;
-  let password: string;
+  let username
+  let password
 
   async function login() {
     await pb.collection('users').authWithPassword(username, password);

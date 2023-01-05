@@ -1,10 +1,10 @@
-<script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
-  import { currentUser, pb } from './pocketbase';
+<script>
+  import { onMount, onDestroy } from 'svelte'
+  import { currentUser, pb } from '$lib/pocketbase'
 
-  let newMessage: string;
-  let messages = [];
-  let unsubscribe: () => void;
+  let newMessage
+  let messages = []
+  let unsubscribe
 
   onMount(async () => {
     // Get initial messages
@@ -12,7 +12,7 @@
       sort: 'created',
       expand: 'user',
     });
-    messages = resultList.items;
+    messages = resultList.items ?? [];
 
     // Subscribe to realtime messages
     unsubscribe = await pb

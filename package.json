@@ -5,8 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"preview": "vite preview",
-		"push": "git add . && git commit -m 'Content' && git push"
+		"preview": "vite preview"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",

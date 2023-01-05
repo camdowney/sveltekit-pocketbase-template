@@ -1,9 +1,18 @@
+<script>
+  import { Login, Messages } from '$lib/components/pb'
+  import { currentUser } from '$lib/pocketbase'
+	import { page } from '$app/stores'
+</script>
+
 <svelte:head>
-	<title>SvelteKit Template</title>
-	<meta name='description' content='SvelteKit Template' />
+	<title>SvelteKit Pocketbase Template</title>
+	<meta name='description' content='SvelteKit Pocketbase Template' />
 </svelte:head>
 
 <section>
-	<a href='/signin'>Sign in</a>
-	<a href='/admin'>Admin</a>
+	<h1>Pocketchat</h1>
+	<Login />
+	{#if $currentUser}
+		<Messages />
+	{/if}
 </section>
