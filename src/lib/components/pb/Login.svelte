@@ -1,11 +1,11 @@
 <script>
-  import { currentUser, pb } from '$lib/pocketbase'
+  import { user, pb } from '$lib/pocketbase'
 
   let username
   let password
 
   async function login() {
-    await pb.collection('users').authWithPassword(username, password);
+    await pb.collection('users').authWithPassword(username, password)
   }
 
   async function signUp() {
@@ -14,37 +14,39 @@
         username,
         password,
         passwordConfirm: password,
-        name: 'hi mom!',
-      };
-      const createdUser = await pb.collection('users').create(data);
-      await login();
-    } catch (err) {
+        name: 'name',
+      }
+      
+      await pb.collection('users').create(data)
+      await login()
+    }
+    catch (err) {
       console.error(err)
     }
   }
 
   function signOut() {
-    pb.authStore.clear();
+    pb.authStore.clear()
   }
 
 </script>
 
-{#if $currentUser}
+{#if $user}
   <p>
-    Signed in as {$currentUser.username} 
+    Signed in as {$user.username} 
     <button on:click={signOut}>Sign Out</button>
   </p>
 {:else}
   <form on:submit|preventDefault>
     <input
-      placeholder="Username"
-      type="text"
+      placeholder='Username'
+      type='text'
       bind:value={username}
     />
 
     <input 
-      placeholder="Password" 
-      type="password" 
+      placeholder='Password' 
+      type='password' 
       bind:value={password} 
     />
     <button on:click={signUp}>Sign Up</button>

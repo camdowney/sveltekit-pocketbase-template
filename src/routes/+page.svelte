@@ -1,7 +1,6 @@
 <script>
   import { Login, Messages } from '$lib/components/pb'
-  import { currentUser } from '$lib/pocketbase'
-	import { page } from '$app/stores'
+  import { user } from '$lib/pocketbase'
 </script>
 
 <svelte:head>
@@ -12,7 +11,7 @@
 <section>
 	<h1>Pocketchat</h1>
 	<Login />
-	{#if $currentUser}
+	{#if $user}
 		<Messages />
 	{/if}
 </section>

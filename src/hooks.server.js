@@ -1,19 +1,13 @@
-import PocketBase from 'pocketbase'
+import { pb } from '$lib/pocketbase'
 
 export const handle = async ({ event, resolve }) => {
-	event.locals.pb = new PocketBase('https://pb-demo.fly.dev/')
-	event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '')
+	pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '')
 
-	if (event.locals.pb.authStore.isValid) {
-		event.locals.user = structuredClone(event.locals.pb.authStore.model)
-	} 
-  else {
-		event.locals.user = undefined
-	}
+	event.locals.pb = pb
+	event.locals.user = pb.authStore.isValid ? structuredClone(pb.authStore.model) : undefined
 
 	const response = await resolve(event)
-
-	response.headers.set('set-cookie', event.locals.pb.authStore.exportToCookie({ secure: false }))
+	response.headers.set('set-cookie', pb.authStore.exportToCookie({ secure: false }))
 
 	return response
-};
+}

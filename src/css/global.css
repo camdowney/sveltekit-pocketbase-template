@@ -66,6 +66,10 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.messages {
+  max-height: 25rem;
+  overflow-y: scroll;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
