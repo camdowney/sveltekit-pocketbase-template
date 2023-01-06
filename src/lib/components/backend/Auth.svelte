@@ -4,7 +4,7 @@
   let username
   let password
 
-  async function login() {
+  async function signIn() {
     await pb.collection('users').authWithPassword(username, password)
   }
 
@@ -18,7 +18,7 @@
       }
       
       await pb.collection('users').create(data)
-      await login()
+      await signIn()
     }
     catch (err) {
       console.error(err)
@@ -49,7 +49,7 @@
       type='password' 
       bind:value={password} 
     />
-    <button on:click={signUp}>Sign Up</button>
-    <button on:click={login}>Login</button>
+    <button on:click={signUp}>Sign up</button>
+    <button on:click={signIn}>Sign in</button>
   </form>
 {/if}

@@ -1,5 +1,5 @@
 <script>
-  import { Login, Messages } from '$lib/components/pb'
+  import { Auth, Messages } from '$lib/components/backend'
   import { user } from '$lib/pocketbase'
 </script>
 
@@ -10,7 +10,7 @@
 
 <section>
 	<h1>Pocketchat</h1>
-	<Login />
+	<Auth />
 	{#if $user}
 		<Messages />
 	{/if}
