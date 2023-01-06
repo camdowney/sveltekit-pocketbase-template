@@ -4,8 +4,8 @@
 </script>
 
 <svelte:head>
-	<title>SvelteKit Pocketbase Template</title>
-	<meta name='description' content='SvelteKit Pocketbase Template' />
+	<title>SvelteKit PocketBase Template</title>
+	<meta name='description' content='SvelteKit PocketBase Template' />
 </svelte:head>
 
 <section>
