@@ -1,5 +1,5 @@
 <script>
-  import { Auth, Messages } from '$lib/components/backend'
+  import { Auth, Messages } from '$lib/components'
   import { user } from '$lib/pocketbase'
 </script>
 
