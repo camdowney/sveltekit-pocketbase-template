@@ -9,7 +9,6 @@
 </svelte:head>
 
 <section>
-	<h1>Pocketchat</h1>
 	<Auth />
 	{#if $user}
 		<Messages />
