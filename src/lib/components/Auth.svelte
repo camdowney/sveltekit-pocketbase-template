@@ -5,23 +5,29 @@
   let password
 
   async function signIn() {
-    try {
-      const data = {
-        username,
-        password,
-        passwordConfirm: password,
-      }
+    await pb.collection('users').authWithPassword(username, password)
+  }
+
+  async function signUp() {
+    const data = {
+      username,
+      password,
+      passwordConfirm: password,
+    }
       
-      try {
-        await pb.collection('users').create(data)
-      }
-      catch (err) {
-        console.log('Username already exists; attempting login.')
-      }
-      await pb.collection('users').authWithPassword(username, password)
+    try {
+      await pb.collection('users').create(data)
     }
     catch (err) {
-      console.error(err)
+      console.log('Username already exists; attempting login.')
+
+      // Don't do this in production; keep sign in and sign up functionality separate
+      try {
+        await signIn()
+      }
+      catch (err) {
+        console.error(err)
+      }
     }
   }
 
@@ -49,6 +55,6 @@
       type='password' 
       bind:value={password} 
     />
-    <button on:click={signIn}>Sign in/up</button>
+    <button on:click={signUp}>Sign in/up</button>
   </form>
 {/if}
