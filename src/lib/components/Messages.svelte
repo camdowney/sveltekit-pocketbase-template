@@ -7,8 +7,10 @@
   const messages = subscribeList(pb, 'messages', {
     sort: 'created',
     expand: 'user',
-    onCreate: async record => {
-      record.expand = { user: $user }
+    onChange: ({ action, record }) => {
+      if (action === 'create') {
+        record.expand = { user: $user }
+      }
     }
   })
 
