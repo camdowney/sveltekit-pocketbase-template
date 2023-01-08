@@ -5,20 +5,20 @@
   let password
 
   async function signIn() {
-    await pb.collection('users').authWithPassword(username, password)
-  }
-
-  async function signUp() {
     try {
       const data = {
         username,
         password,
         passwordConfirm: password,
-        name: 'name',
       }
       
-      await pb.collection('users').create(data)
-      await signIn()
+      try {
+        await pb.collection('users').create(data)
+      }
+      catch (err) {
+        console.log('Username already exists; attempting login.')
+      }
+      await pb.collection('users').authWithPassword(username, password)
     }
     catch (err) {
       console.error(err)
@@ -32,10 +32,10 @@
 </script>
 
 {#if $user}
-  <p>
-    Signed in as {$user.username} 
-    <button on:click={signOut}>Sign Out</button>
-  </p>
+  <div>
+    <p>Signed in as {$user.username}</p>
+    <button on:click={signOut}>Sign out</button>
+  </div>
 {:else}
   <form on:submit|preventDefault>
     <input
@@ -45,11 +45,10 @@
     />
 
     <input 
-      placeholder='Password' 
+      placeholder='Password'
       type='password' 
       bind:value={password} 
     />
-    <button on:click={signUp}>Sign up</button>
-    <button on:click={signIn}>Sign in</button>
+    <button on:click={signIn}>Sign in/up</button>
   </form>
 {/if}

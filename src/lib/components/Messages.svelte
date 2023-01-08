@@ -11,7 +11,7 @@
       if (action === 'create') {
         record.expand = { user: $user }
       }
-    }
+    },
   })
 
   async function sendMessage() {
@@ -36,7 +36,7 @@
       />
       <div>
         <small>
-          Sent by @{message.expand?.user?.username}
+          Sent by {message.expand?.user?.username}
         </small>
         <p class='msg-text'>{message.text}</p>
       </div>
