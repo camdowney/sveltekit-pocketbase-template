@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>SvelteKit PocketBase Template</title>
+	<title>SvelteKit + PocketBase Template</title>
 	<meta name='description' content='SvelteKit PocketBase Template' />
 </svelte:head>
 
