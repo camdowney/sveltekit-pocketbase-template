@@ -20,12 +20,12 @@ In Pocketbase, edit the API Rules of the existing "users" collection to match th
 * Manage Action - Admins Only: (empty)
 
 ### 3. Set up messages
-Create a new "messages" collection, and add two fields as follows:
+Create a new "messages" collection, and set up the two following fields:
 
-1. Text field named "text"
+* Text field named "text"
     * Max Length = 100
     * Nonempty = true
-2. Relation field named "user"
+* Relation field named "user"
     * Collection = "users"
     * Max Select = 1
     * Nonempty = true
