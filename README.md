@@ -1,5 +1,5 @@
 # SvelteKit + PocketBase Template
-For developing apps with SvelteKit, PocketBase, and Tailwind. Security is not guaranteed; further measures should be taken to ensure authentication and database function properly.
+For developing full-stack applications with SvelteKit, PocketBase, and Tailwind. Security is not guaranteed; further measures should be taken to ensure authentication and database function properly.
 
 If you are already familiar with working with PocketBase, simply ignore the below configuration.
 
